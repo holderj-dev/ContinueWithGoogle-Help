@@ -68,7 +68,8 @@
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0" />
-		<PackageReference Include="Plugin.Firebase.Auth.Google" Version="3.1.0" />
+		<PackageReference Include="Plugin.FirebaseAuth" Version="4.1.0" />
+		<PackageReference Include="Xamarin.GooglePlayServices.Auth" Version="121.3.0.3" />
 	</ItemGroup>
 
 	<!-- Firebase Android specific configuration -->

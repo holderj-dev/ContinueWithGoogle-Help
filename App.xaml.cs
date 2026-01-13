@@ -1,5 +1,4 @@
-﻿using Plugin.Firebase.Auth.Google;
-using Plugin.Firebase.Core.Platforms.Android;
+﻿using Java.Lang;
 
 namespace ContinueWithGoogle
 {
@@ -8,13 +7,13 @@ namespace ContinueWithGoogle
         public App()
         {
             InitializeComponent();
-#if IOS
-            // FirebaseAuthGoogleImplementation.Initialize();
-#elif ANDROID
-            FirebaseAuthGoogleImplementation.Initialize("292004549052-uasrrsbmof2mhiebp8smdq7ql5nejvid.apps.googleusercontent.com");
-#endif
         }
 
+        protected override void OnStart()
+        {
+            base.OnStart();
+           
+        }
         protected override Window CreateWindow(IActivationState? activationState)
         {
             return new Window(new AppShell());

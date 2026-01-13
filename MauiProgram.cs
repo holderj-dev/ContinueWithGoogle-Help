@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using ContinueWithGoogle.Helper;
+using ContinueWithGoogle.Platforms.Android;
+using Microsoft.Extensions.Logging;
 
 namespace ContinueWithGoogle
 {
@@ -7,6 +9,7 @@ namespace ContinueWithGoogle
         public static MauiApp CreateMauiApp()
         {
             var builder = MauiApp.CreateBuilder();
+
             builder
                 .UseMauiApp<App>()
                 .ConfigureFonts(fonts =>
@@ -18,8 +21,13 @@ namespace ContinueWithGoogle
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
-            builder.Services.AddSingleton<Plugin.Firebase.Auth.Google.CrossFirebaseAuthGoogle>();
-            builder.Services.AddSingleton<MainPage>();
+
+#if ANDROID
+            builder.Services.AddSingleton<IGoogleAuthService, GoogleAuthService>();
+#endif
+
+            builder.Services.AddSingleton<MainPage>(provider =>
+                new MainPage(provider.GetRequiredService<IGoogleAuthService>()));
 
             return builder.Build();
         }

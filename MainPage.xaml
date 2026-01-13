@@ -18,13 +18,32 @@
                 Text="User Info Display: "
                 SemanticProperties.HeadingLevel="Level1" />
 
-         
+            <Entry
+                x:Name="phoneNumberEntry"
+                Placeholder="Enter your Number"
+                HorizontalOptions="Fill" />
+
+            <Entry
+                x:Name="verificationCodeEntry"
+                Placeholder="Enter Auth Code"
+                HorizontalOptions="Fill" />
+
+            <StackLayout Spacing="5" HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+
+                <Button Text="Send 6 digits Code"  Clicked="VerifyPhoneNumberAsync"/>
+                
+                <Button Text="Login" Clicked="SigninWithPhoneNumberClicked"/>
+
+            </StackLayout>
+
             <Button
                 x:Name="ContinueWithGoogle"
-                Text="Click me" 
+                Text="Continue with Google" 
                 Clicked="ContinueWithGoogleClicked"
                 HorizontalOptions="Fill" />
+                
         </VerticalStackLayout>
+        
     </ScrollView>
 
 </ContentPage>
